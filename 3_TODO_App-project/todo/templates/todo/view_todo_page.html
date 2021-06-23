@@ -1,0 +1,47 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+<p>{{ todo_pk }}</p>
+<h1>Todo</h1>
+<br>
+<br>
+{% csrf_token %}
+
+<h1>Update Todo</h1>
+
+<h3>{{ error }}</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ todo_form.as_p }}
+    <button type="submit">Update Todo</button>
+</form>
+
+<form method="POST" action="{% url 'complete_todo' todo.id %}">
+    {% csrf_token %}
+    <button type="submit">Complete Todo</button>
+</form>
+
+<form method="POST" action="{% url 'delete_todo' todo.id %}">
+    {% csrf_token %}
+    <button type="submit">Delete Todo</button>
+</form>
+
+{% if todo.completed_time %}
+    <form method="POST" action="{% url 'move_back' todo.id %}">
+        {% csrf_token %}
+        <button type="submit">Move back this Todo</button>
+    </form>
+{% endif %}
+
+{% comment %} 
+{% if todo.importance %}<b>{% endif %}
+    <h1>{{ todo.title }}</h1>
+{% if todo.importance %}</b>{% endif %}
+{% if todo.memo %}    
+    <br>
+    <h4>{{ todo.memo }}</h4>
+{% endif %} {% endcomment %}
+
+{% endblock %}

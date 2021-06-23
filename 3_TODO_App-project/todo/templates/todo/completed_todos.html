@@ -1,0 +1,22 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+
+{% csrf_token %}
+
+<ul>
+    {% for todo in todos %}
+        <a href={% url 'view_todo_page' todo_pk=todo.pk %}> <!-- passing the url's argument-->
+            {% if todo.importance %}<b>{% endif %}
+                {{ todo.title|truncatechars:50 }}
+            {% if todo.importance %}</b>{% endif %}
+            {% if todo.memo %}    
+                - {{ todo.memo|truncatechars:100 }}    
+                -- {{ todo.completed_time|date:'M j Y H:i' }}    
+        </a>
+        {% endif %}
+        <br>
+    {% endfor %}
+</ul>
+
+{% endblock %}

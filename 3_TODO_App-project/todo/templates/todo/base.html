@@ -1,0 +1,24 @@
+<div class="container">
+    {% if user.is_authenticated %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        
+        <h1>Logged in as {{ user.username }}</h1>
+
+        <form method="post" action="{% url 'logoutuser' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+
+        <a href={% url 'create_todo' %}>Create Todo</a>
+        <a href={% url 'current_todo_page' %}>Current Todo's</a>
+        <a href={% url 'completed_todos_page' %}>Completed Todo's</a>
+
+    {% else %}
+        <a href={% url 'signupuser' %}>Sign up</a>
+        <a href={% url 'loginuser' %}>Login</a>
+    {% endif %}
+    <br>
+    <br>
+
+    {% block content %} {% endblock %}
+</div>
