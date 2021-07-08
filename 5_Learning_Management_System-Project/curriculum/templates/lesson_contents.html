@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Chapter Details
+{% endblock %}
+
+{% block content %}
+    <h1>Chapter Details</h1>
+    <div class="container">
+        <a href="#">Created By--{{lessons.created_by}} on {{lessons.created_at}}</a><br>
+        <a href="{% url 'update_lesson' slug=lessons.slug chapter=lessons.subject.slug standard=lessons.standard.slug %}">Update</a>
+        <a href="{% url 'delete_lesson' slug=lessons.slug chapter=lessons.subject.slug standard=lessons.standard.slug %}">Delete</a>
+    </div>
+
+    <h3>Post your comment below</h3>
+    <form class="form-control" method="post">
+        <div class="form-group">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="submit" name="form" class="btn btn-primary btn-sm" value="Comment">
+        </div>
+    </form>
+
+    {% for comment in lessons.comments.all %}
+        <h4>By {{comment.author}}, at {{comment.date}}</h4>
+        <p>{{comment.comment}}</p>
+        <p>{{lessons.comments.replies.all}}</p>
+        {% for reply in comment.replies.all %}
+            <h6>-By {{reply.author}}, at {{reply.date}}</h6>
+            <p>{{reply.reply}}</p>
+        {% endfor %}
+
+        <h3>Post your replies below</h3>
+        <form class="form-control" method='post'>
+            <div class="form-group">
+                <input type="hidden" name="comment.id" value="{{comment.id}}">
+                <input type="hidden" name="comment.comment_slug" value="{{comment.comment_slug}}">
+                {% csrf_token %}
+                {{form2|crispy}}
+                <input type="submit" name="form2" class="btn btn-primary btn-sm" value="Reply">
+            </div>
+        </form>
+
+    {% endfor %}
+{% endblock %}

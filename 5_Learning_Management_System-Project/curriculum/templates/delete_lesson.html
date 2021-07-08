@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Delete Chapter
+{% endblock %}
+
+{% block content %}
+
+<h2>Delete Chapter</h2>
+<h5>Are you sure you want to delete this chapter?</h5>
+<form method='POST'>
+    {% csrf_token %}
+    <input type='submit' value="Delete">
+    <a href="{% url 'lesson_contents' slug=lessons.slug chapter=lessons.subject.slug standard=lessons.standard.slug %}">Cancel Delete</a>
+</form>
+{% endblock %}

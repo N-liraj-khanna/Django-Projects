@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Chapters
+{% endblock %}
+
+{% block content %}
+    <h1>Chapters List</h1>
+    <div class="container">
+        {% for chapter in subjects.lessons.all %}
+            <a href="
+            {% url 'lesson_contents'  slug=chapter.slug standard=chapter.standard.slug chapter=subjects.slug %}">
+                Chapter--{{chapter.chapter_num}}: {{chapter.lesson_name}}</a><br>
+        {% endfor %}
+        <a href="{% url 'create_lesson' slug=subjects.slug standard=subjects.standard.slug %}" class='btn btn-primary'>Create Lesson</a>
+    </div>
+{% endblock %}

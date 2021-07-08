@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Create Chapter's
+{% endblock %}
+
+{% block content %}
+<h2>Create Chapter</h2>
+<form method='POST'>
+    {% csrf_token %}
+    {{form|crispy }}
+    <br>
+    <input type="submit" value="Update">
+</form>
+{{subject}}
+{% endblock %}
