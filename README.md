@@ -4,4 +4,6 @@
 > - Django
 > - Python
 > - JavaScript
+> - AJAX
+> - JQuery
 > - HTML, CSS, Bootstrap
