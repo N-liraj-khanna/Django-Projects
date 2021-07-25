@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+  <title>Dear Diary</title>
+</head>
+<body>
+  <header>
+    MY DEAR DIARY
+  </header>
+  <div id="add">
+    <a href="/create">Add New Entry</a>
+  </div>
+  <div id="diary-content">
+    {% for entry in diary_content %}
+    <div id="content">
+      <strong>{{ entry.date}}</strong>
+      <p>{{ entry.content }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</body>
+</html>

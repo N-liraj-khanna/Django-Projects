@@ -1,0 +1,163 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+header {
+  background-color: coral;
+  height: 4rem;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+a{
+  text-decoration:none;
+  color:rgb(118, 118, 247);
+}
+#add{
+  width:80%;
+  height: 5rem;
+  margin: auto;
+  display:flex;
+  align-items: center;
+  font-weight: 900;
+}
+#diary-content{
+  width:80%;
+  margin: auto;
+}
+#diary-content p{
+  margin: 0.5rem 0 1.3rem 0;
+}
+#diary-content strong{
+  color: coral;
+  font-weight: 900;
+}
+#create-form{
+  width:80%;
+  margin: 3rem auto; 
+}
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;
+	font-family: 'Ubuntu', sans-serif;
+	background: #353535;
+	color: #FFF;
+}
+.jumbotron h1 {
+	color: #353535;
+}
+span.icon {
+	margin: 0 5px;
+	color: #D64541;
+}
+h2 {
+	color: #BDC3C7
+}
+.mrng-60-top {
+	margin-top: 60px;
+}
+/* Global Button Styles */
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	border-radius: 0;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+a.animated-button:link:after, a.animated-button:visited:after {
+	content: "";
+	position: absolute;
+	height: 0%;
+	left: 50%;
+	top: 50%;
+	width: 150%;
+	z-index: -1;
+	-webkit-transition: all 0.75s ease 0s;
+	-moz-transition: all 0.75s ease 0s;
+	-o-transition: all 0.75s ease 0s;
+	transition: all 0.75s ease 0s;
+}
+a.animated-button:link:hover, a.animated-button:visited:hover {
+	color: #FFF;
+	text-shadow: none;
+}
+a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+	height: 450%;
+}
+a.animated-button:link, a.animated-button:visited {
+	position: relative;
+	display: block;
+	margin: 30px auto 0;
+	padding: 14px 15px;
+	color: #fff;
+	font-size:14px;
+	border-radius: 0;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	overflow: hidden;
+	letter-spacing: .08em;
+	text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+	-webkit-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-o-transition: all 1s ease;
+	transition: all 1s ease;
+}
+
+/* Victoria Buttons */
+
+a.animated-button.victoria-one {
+	border: 2px solid #D24D57;
+}
+a.animated-button.victoria-one:after {
+	background: #D24D57;
+	-moz-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-ms-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	-webkit-transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+	transform: translateX(-50%) translateY(-50%) rotate(-25deg);
+}
+
+#id_content {
+  margin-top: 10px;
+  margin: auto;
+  width: 100%;
+  height: 40%;
+  -moz-border-bottom-colors: none;
+  -moz-border-left-colors: none;
+  -moz-border-right-colors: none;
+  -moz-border-top-colors: none;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.07);
+  border-color: -moz-use-text-color #FFFFFF #FFFFFF -moz-use-text-color;
+  border-image: none;
+  border-radius: 6px 6px 6px 6px;
+  border-style: none solid solid none;
+  border-width: medium 1px 1px medium;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12) inset;
+  font-size: 1em;
+  line-height: 1.4em;
+  padding: 1rem 1rem;
+  transition: background-color 0.2s ease 0s;
+  color: white;
+}
+
+#id_content:focus {
+    background: none repeat scroll 0 0 #353535;
+    outline-width: 0;
+    color: white;
+}
