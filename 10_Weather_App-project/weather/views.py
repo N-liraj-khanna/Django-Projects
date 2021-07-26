@@ -1,7 +1,7 @@
 import requests
 from .models import Weather 
 from .forms import Form
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 API_KEY="49de35b807b87c29e2319f101ab892a6"
 
@@ -34,3 +34,8 @@ def index(request):
   form=Form()
   weather_data = Weather.objects.all().order_by('-id')
   return render(request, 'weather/weather.html', context={'weather_data': weather_data, 'form':form, 'error': error})
+
+def delete(request, pk):
+  obj=Weather.objects.get(id=pk)
+  obj.delete()
+  return redirect('index')

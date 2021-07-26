@@ -80,6 +80,7 @@
                                         <br />
                                         {{ city_weather.description }}
                                     </p>
+                                    <a href="{% url 'delete' pk=city_weather.id %}" style="color:red" class="delete_city">Delete</a>
                                 </div>
                             </div>
                         </article>
