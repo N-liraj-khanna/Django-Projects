@@ -6,4 +6,5 @@
 > - JavaScript
 > - AJAX
 > - JQuery
+> - API's
 > - HTML, CSS, Bootstrap
