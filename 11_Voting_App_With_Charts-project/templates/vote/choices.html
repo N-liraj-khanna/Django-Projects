@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Vote Choice's
+{% endblock %}
+
+{% block content %}
+
+<a class="btn btn-secondary btn-sm mb-3" href="{% url 'vote_list' %}">Back To Polls</a>
+<h1 class="text-center mb-3">Language</h1>
+
+<form action="{% url 'results' question.id %}" method="post">
+		{% csrf_token %}	
+		{% for choice in choices %}
+			<div class="form-check">
+				<input
+					type="radio"
+					name="choice"
+					class="form-check-input"
+					id="choice{{choice.id}}"
+					value={{ choice.id }}
+				/>
+				<label for="choice{{choice.id}}">{{ choice }}</label>
+			</div>
+		{% endfor %}
+
+	<input type="submit" value="Vote" class="btn btn-success btn-lg btn-block mt-4" />
+
+</form>
+
+{% endblock %}

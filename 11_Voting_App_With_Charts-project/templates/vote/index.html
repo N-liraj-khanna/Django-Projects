@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Vote!{% endblock %}
+
+{% block content %}
+<div class="card text-center">
+  <div class="card-body">
+    <h1>Welcome To Voting!!</h1>
+    <a class="btn btn-dark" href="{% url 'vote_list' %}">View Available Polls</a>
+  </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Vote Choice's
+{% endblock %}
+
+{% block content %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+<h1 class="mb-5 text-center">Language</h1>
+
+<ul class="list-group mb-5">
+	{% for choice in choices %}
+	<li class="data_name list-group-item">
+		{{ choice }}  <span class="data badge badge-success float-right">{{choice.votes}}</span>
+	</li>
+  {% endfor %}
+	
+</ul>
+
+<a class="btn btn-secondary" href="{% url 'vote_list' %}">Back To Polls</a>
+<a class="btn btn-dark" href="{% url 'choices' pk %}">Vote again?</a>
+
+<div id="myChart"></div>
+<script>
+	var data_url="/vote_lists/{{pk}}/results_data"
+	var chart_data=[]
+
+	$.ajax({
+		url: data_url,
+		method: 'GET',
+		success: function(response){
+			for(var i=0;i<response.length;i++)
+				chart_data.push([response[i][0], response[i][1]])
+				
+			chart_render(chart_data)
+		}
+	})
+	const chart_render = (chart_data)=>{
+		zingchart.render({
+			id: 'myChart',
+			data: {
+				type: 'bar',
+				series: [
+					{ values: chart_data },
+				]
+			}
+		});
+	}
+
+</script>
+{% endblock %}

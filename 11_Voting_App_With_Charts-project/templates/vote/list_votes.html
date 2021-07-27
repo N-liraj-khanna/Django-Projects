@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Vote List's
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mb-3">Poll Questions</h1>
+  
+{% for vote in votes_list %}
+  <div class="card mb-3">
+    <div class="card-body">
+      <p class="lead">{{vote.question}}</p>
+      <a href="{% url 'choices' vote.id %}" class="btn btn-primary btn-sm">Vote Now</a>
+      <a href="{% url 'results' vote.id%}" class="btn btn-secondary btn-sm">Results</a>
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
